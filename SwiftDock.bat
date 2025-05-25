@@ -16,7 +16,7 @@ echo                      Copyright (c) [2025] notacoder-dz. All rights reserved
 echo.
 echo --- If you use this software in your research, please cite our article : ---
 echo.
-echo Larbaoui, B., & Menad, R. (2024). Single-click molecular docking via 
+echo "Larbaoui, B., & Menad, R. (2024). Single-click molecular docking via" 
 echo SwiftDock: A new virtual screening tool using AutoDock4. Computational and 
 echo Structural Biotechnology Reports, 1, 100017.
 echo ----------------------------------------------------------------------------
