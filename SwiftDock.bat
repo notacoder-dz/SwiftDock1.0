@@ -14,12 +14,12 @@ echo.
 echo                                         Developed by notacoder-dz on Github           
 echo                      Copyright (c) [2025] notacoder-dz. All rights reserved.
 echo.
-echo ----------------------------------If you use this software in your research, 
-echo                                                     please cite our article:
+echo --- If you use this software in your research, please cite our article : ---
 echo.
-echo  Billel Larbaoui, Rafik Menad, Single-click molecular docking via SwiftDock: 
-echo   A new virtual screening tool using AutoDock4, Computational and Structural 
-echo               Biotechnology Reports, Volume 1, 2024, 100017, ISSN 2950-3639.
+echo Larbaoui, B., & Menad, R. (2024). Single-click molecular docking via 
+echo SwiftDock: A new virtual screening tool using AutoDock4. Computational and 
+echo Structural Biotechnology Reports, 1, 100017. ISSN 2950-3639.
+echo ----------------------------------------------------------------------------
 echo.
 echo.
 
@@ -225,7 +225,7 @@ REM Here you can modify the grid box dimensions and center
 REM .......................................................................
 
 echo .......................................................................
-echo "Configuring the grid box dimensions and center ..."
+echo Configuring the grid box dimensions and center ...
 echo .......................................................................
 
 @echo off
