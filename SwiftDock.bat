@@ -1,5 +1,6 @@
+REM -------------------------------------------------------------------------------------------------------------------------------
 REM The users can modify the grid box dimensions and center (lines X, X and X) to accomodate their specific needs before execution.
-
+REM -------------------------------------------------------------------------------------------------------------------------------
 @echo off
 echo.
 echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
