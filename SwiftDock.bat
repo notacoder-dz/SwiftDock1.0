@@ -18,7 +18,7 @@ echo --- If you use this software in your research, please cite our article : --
 echo.
 echo Larbaoui, B., & Menad, R. (2024). Single-click molecular docking via 
 echo SwiftDock: A new virtual screening tool using AutoDock4. Computational and 
-echo Structural Biotechnology Reports, 1, 100017. ISSN 2950-3639.
+echo Structural Biotechnology Reports, 1, 100017.
 echo ----------------------------------------------------------------------------
 echo.
 echo.
@@ -223,7 +223,7 @@ endlocal
 REM .......................................................................
 REM Here you can modify the grid box dimensions and center
 REM .......................................................................
-
+echo.
 echo .......................................................................
 echo Configuring the grid box dimensions and center ...
 echo .......................................................................
