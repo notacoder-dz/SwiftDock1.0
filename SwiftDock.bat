@@ -451,8 +451,10 @@ echo All operations done.
 echo.
 echo Now you can visualize your P-L complexes.
 echo.
-echo Thank you for using SwiftDock.
+echo Thank you for using SwiftDock !
 echo.
-echo PRESS ANY KEY TO EXIT !
+echo .......................................................................
+echo                         PRESS ANY KEY TO EXIT !
+echo .......................................................................
 echo.
 pause
