@@ -1,7 +1,7 @@
-REM -------------------------------------------------------------------------------------------------------------------------------
-REM The users can modify the grid box dimensions and center (lines X, X and X) to accomodate their specific needs before execution.
-REM -------------------------------------------------------------------------------------------------------------------------------
 @echo off
+REM -------------------------------------------------------------------------------------------------------------------------------
+REM The users can modify the grid box dimensions and center (lines 249, 260 and 272) to accomodate their specific needs before execution.
+REM -------------------------------------------------------------------------------------------------------------------------------
 echo.
 echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo O O O O  O           O  O  O O O O  O O O O  O O      O O O    O O O  O   O
@@ -14,15 +14,16 @@ echo.
 echo                                         Developed by notacoder-dz on Github           
 echo                      Copyright (c) [2025] notacoder-dz. All rights reserved.
 echo.
-echo --- If you use this software in your research, please cite our article : ---
+echo ----------------------------------------------------------------------------
+echo If you use this software in your research, please cite our article : 
 echo.
-echo "Larbaoui, B., & Menad, R. (2024). Single-click molecular docking via" 
+echo "Larbaoui, B., & Menad, R. (2024). Single-click molecular docking via 
 echo SwiftDock: A new virtual screening tool using AutoDock4. Computational and 
-echo Structural Biotechnology Reports, 1, 100017.
+echo Structural Biotechnology Reports, 1, 100017."
 echo ----------------------------------------------------------------------------
 echo.
 echo.
-
+timeout 5 >nul
 echo .......................................................................
 echo Checking if the necessary files are present ..
 echo .......................................................................
@@ -223,10 +224,12 @@ endlocal
 REM .......................................................................
 REM Here you can modify the grid box dimensions and center
 REM .......................................................................
+
 echo.
 echo .......................................................................
 echo Configuring the grid box dimensions and center ...
 echo .......................................................................
+echo.
 
 @echo off
 setlocal enabledelayedexpansion
@@ -453,5 +456,3 @@ echo.
 echo PRESS ANY KEY TO EXIT !
 echo.
 pause
-
-
