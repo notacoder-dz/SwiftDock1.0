@@ -27,6 +27,7 @@ Usage :
 
 3- Put the BAT/EXE file in a folder, containing the ligand SDF files and the protein PDB file, and execute the program
 
+******************************************************************************************************************************************************************************************
 
 PS: *The required programs should be installed in the destination folders defined in the source code :
 
