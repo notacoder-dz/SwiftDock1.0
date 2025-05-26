@@ -41,12 +41,13 @@ However, the destination folders in the source code could be modified to accomod
 
 *The "SwiftDock.bat" file is designed to execute blind docking by default. To perform site-specific docking, users can modify the grid box dimensions and center to suit their specific needs (see the main code for details).   
 
-
-
------------------------------If you use this software in your research, please cite our article:
+******************************************************************************************************************************************************************************************
+If you use this software in your research, please cite our article:
 
 Larbaoui, B., & Menad, R. (2024). Single-click molecular docking via SwiftDock: A new virtual screening tool using AutoDock4. Computational and Structural Biotechnology Reports, 1, 100017. https://doi.org/10.1016/j.csbr.2024.100017
 
------------------------------If you encounter any issues or have questions about the software, feel free to contact us at:
+******************************************************************************************************************************************************************************************
+
+If you encounter any issues or have questions about the software, feel free to contact us at:
 bilellarbaoui@gmail.com or menadrafik@gmail.com
 
