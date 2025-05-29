@@ -1,14 +1,17 @@
 @echo off
+@if not defined MAX set MAX=1&start "" /max cmd /c "%~f0"&exit /b
 REM -------------------------------------------------------------------------------------------------------------------------------
-REM The users can modify the grid box dimensions and center (lines 249, 260 and 272) to suit their specific needs before execution.
+REM The users can modify the grid box dimensions and center (lines 243, 254 and 266) to suit their specific needs before execution.
 REM -------------------------------------------------------------------------------------------------------------------------------
 echo.
 echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo.
 echo O O O O  O           O  O  O O O O  O O O O  O O      O O O    O O O  O   O
 echo O         O         O   O  O           O     O   O   O     O  O       O  O
 echo O O O O    O   O   O    O  O O O       O     O    O  O     O  O       O O
 echo       O     O O O O     O  O           O     O   O   O     O  O       O  O
 echo O O O O      O   O      O  O           O     O O      O O O    O O O  O   O
+echo.
 echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.                                                  
 echo                                         Developed by notacoder-dz on Github           
@@ -30,7 +33,6 @@ echo .......................................................................
 echo.
 echo.
 
-@echo off
 title SwiftDock
 
 
@@ -69,7 +71,6 @@ REM .......................................................................
 REM Putting SDF files in the "SDF-Ligands" folder (if there isn't one)
 REM .......................................................................
 
-@echo off
 if not exist "SDF-Ligands" (
     mkdir "SDF-Ligands"
 ) else (
@@ -84,13 +85,11 @@ REM .......................................................................
 REM Labelling the Protein file and the Ligand file(s)
 REM .......................................................................
 
-@echo off
 for %%a in (*.pdb) do (
     set "name=%%~na"
     echo %%~na | findstr /i /b "P-" >nul || ren "%%a" "P-%%a"
 )
 
-@echo off
 cd SDF-Ligands
 
 for %%a in (*.sdf) do (
@@ -102,18 +101,17 @@ cd ..
 
 
 echo.                                                                                                
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 echo PREPARING THE PROTEIN FILE .. (1/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 
 REM .......................................................................
 REM Processing the protein file with prepare_receptor4.py generating a pdbqt file
 REM .......................................................................
 
-@echo off
 setlocal enabledelayedexpansion
 
 for %%p in (P-*.pdb) do (
@@ -126,18 +124,17 @@ endlocal
 
 echo.
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 echo CONVERTING THE LIGAND FILE(S) .. (2/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 
 REM .......................................................................
 REM Converting the sdf ligand files to pdb files using OpenBabel
 REM .......................................................................
 
-@echo off
 cd SDF-Ligands
 "C:\Program Files\OpenBabel-3.1.1\obabel.exe" -isdf *.sdf -opdb -O *.pdb
 
@@ -146,18 +143,17 @@ REM .......................................................................
 REM Moving the PDB Ligand file(s) in the "PDB-Ligands" folder
 REM .......................................................................
 
-@echo off
 if not exist "..\PDB-Ligands" mkdir "..\PDB-Ligands"
 for %%i in (*.pdb) do move "%%i" "..\PDB-Ligands\" >nul
 cd ..
 
 echo.
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 echo PREPARING THE LIGAND FILE(S) .. (3/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 
 
@@ -166,7 +162,6 @@ REM Processing the ligand file(s) with prepare_ligand4.py generating pdbqt file(
 REM .......................................................................
 
 cd PDB-Ligands
-@echo off
 setlocal enabledelayedexpansion
 
 for %%l in (L-*.pdb) do (
@@ -181,7 +176,6 @@ REM .......................................................................
 REM Moving the PDBQT Ligand file(s) in the "PDBQT-Ligands" folder
 REM .......................................................................
 
-@echo off
 if not exist "..\PDBQT-Ligands" mkdir "..\PDBQT-Ligands"
 for %%i in (*.pdbqt) do move "%%i" "..\PDBQT-Ligands\" >nul
 cd ..
@@ -189,18 +183,17 @@ cd ..
 
 echo.
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
-echo GENERATING GPF AND DPF FILE(S) .. (4/8)
+echo GENERATING GPF AND DPF FILES .. (4/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
 
 REM .......................................................................
 REM Preparing GPF and DPF files for each ligand using prepare_gpf4.py and prepare_dpf4.py respectively
 REM .......................................................................
 
-@echo off
 setlocal enabledelayedexpansion
 for %%p in (P-*.pdbqt) do (
     set "f=%%~np"
@@ -208,14 +201,16 @@ for %%p in (P-*.pdbqt) do (
         set "g=%%~nl"
         echo.
         echo.
+	echo .......................................................................
         echo Generating GPF for !g! ...
-        echo.
+	echo.
         mkdir "!g!" 2>nul
         python "C:\Program Files (x86)\MGLTools-1.5.7\Lib\site-packages\AutoDockTools\Utilities24\prepare_gpf4.py" -l "%%l" -r "%%p" -o "!g!\!g!.gpf"
 	      echo.
 	      echo Generating DPF for !g! ...
 	      echo.
 	      python "C:\Program Files (x86)\MGLTools-1.5.7\Lib\site-packages\AutoDockTools\Utilities24\prepare_dpf4.py" -l "%%l" -r "%%p" -o "!g!\!g!.dpf"
+	      echo .......................................................................
     )
 )
 
@@ -231,7 +226,6 @@ echo Configuring the grid box dimensions and center ...
 echo .......................................................................
 echo.
 
-@echo off
 setlocal enabledelayedexpansion
 
 REM Going through the ligands folders to modify their GPF files
@@ -285,11 +279,11 @@ echo Processing completed.
 
 echo.
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 echo GENERATING GRIDS AND MAPS BY RUNNING AUTOGRID4 .. (5/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 
 
@@ -297,8 +291,6 @@ REM .......................................................................
 REM Copying the pdbqt protein file to ligands folders (for the execution of autogrid4.exe and autodock4.exe)
 REM .......................................................................
 
-
-@echo off
 setlocal enabledelayedexpansion
 
 for %%P in (P-*.pdbqt) do (
@@ -311,7 +303,6 @@ REM .......................................................................
 REM Copying the pdbqt ligands files to their folders (for the execution of autogrid4.exe and autodock4.exe)
 REM .......................................................................
 
-@echo off
 for %%L in ("PDBQT-Ligands\L-*.pdbqt") do (
     copy "%%L" "%%~nL" >nul
 )
@@ -320,7 +311,6 @@ REM .......................................................................
 REM Executing autogrid4.exe in the ligands folders 
 REM .......................................................................
 
-@echo off
 for /d %%l in (L-*) do (
     echo Running autogrid4.exe for %%l  ...
     cd %%l
@@ -335,11 +325,11 @@ endlocal
 
 echo.
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 echo PERFORMING MOLECULAR DOCKING BY RUNNING AUTODOCK4 .. (6/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 
 
@@ -347,16 +337,17 @@ REM .......................................................................
 REM Executing autodock4.exe for every ligand (in the ligands folders) 
 REM .......................................................................
 
-
-@echo off
 setlocal enabledelayedexpansion
 
 for /d %%a in (L-*) do (
+    echo .......................................................................
     echo Running autodock4.exe for %%a  ...
     cd %%a
     for %%b in (L-*.dpf) do (
         set "g=%%~nb"
         "C:\Program Files (x86)\The Scripps Research Institute\Autodock\4.2.6\autodock4.exe" -p %%b -l "!g!.dlg"
+	echo .......................................................................
+	echo.
         cd ..
     )
 )
@@ -365,18 +356,17 @@ endlocal
 
 echo.
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
-echo EXTRACTING THE FREE BINDING ENERGY VALUES FOR EACH LIGAND .. (7/8)
+echo EXTRACTING THE LOWEST BINDING ENERGIES .. (7/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 
 REM .......................................................................
 REM Extracting the lowest binding energy generated in kcal/mol for each ligand 
 REM .......................................................................
 
-@echo off
 setlocal enabledelayedexpansion
 
 (echo Extracted values:)> "FREE_BINDING_ENERGIES.txt"
@@ -396,7 +386,6 @@ REM .......................................................................
 REM Additional step to remove the Labelling of the ligand names 
 REM .......................................................................
 
-@echo off
 setlocal enabledelayedexpansion
 
 set "file=FREE_BINDING_ENERGIES.txt"
@@ -421,18 +410,17 @@ echo Extraction completed. The free binding energies of the ligands were outputt
 
 echo.
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 echo WRITING THE LOWEST ENERGY CONFORMATION FOR LIGAND(S) .. (8/8)
 echo.
-echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+echo OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 echo.
 
 REM .......................................................................
 REM Extracting the best pose for each ligand using write_lowest_energy_ligand.py for visualization purposes 
 REM .......................................................................
 
-@echo off
 setlocal enabledelayedexpansion
 
 for /d %%a in (L-*) do (
@@ -447,14 +435,15 @@ endlocal
 
 echo.
 echo.
-echo All operations done.
+echo ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+echo ...........................................................................
+echo THANK YOU FOR USING SWIFTDOCK !
+echo ...........................................................................
+echo ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 echo.
-echo Now you can visualize your P-L complexes.
 echo.
-echo Thank you for using SwiftDock !
+echo PRESS ANY KEY TO EXIT !
 echo.
-echo .......................................................................
-echo                         PRESS ANY KEY TO EXIT !
-echo .......................................................................
+echo.
 echo.
 pause
